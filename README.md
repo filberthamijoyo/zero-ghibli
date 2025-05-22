@@ -24,7 +24,7 @@ This repository contains:
 
 The analysis follows these key steps:
 
-1. **Data Collection**: Gathering film data from multiple sources
+1. **Data Collection**: Loading datasets from Hugging Face repositories
 2. **Data Cleaning**: Handling missing values and standardizing formats
 3. **Exploratory Analysis**: Identifying patterns and relationships
 4. **Statistical Testing**: Validating hypotheses about film characteristics
@@ -33,21 +33,28 @@ The analysis follows these key steps:
 
 ## Datasets
 
-The analysis combines several datasets to create a comprehensive view of Studio Ghibli films:
+The analysis uses two primary datasets from Hugging Face:
 
 ### Primary Datasets
-- **Studio Ghibli API Data**: Core information about each film including title, director, release date, running time, and synopsis (accessed via [https://ghibliapi.herokuapp.com](https://ghibliapi.herokuapp.com))
-- **Box Office Performance**: Revenue data from The Numbers and Box Office Mojo, including domestic and international earnings
-- **Critical Reception**: Review scores aggregated from Metacritic, Rotten Tomatoes, and IMDb
-- **Award Information**: Data on nominations and wins for major awards (Academy Awards, Annie Awards, Japan Academy Film Prize)
+- **AI-Generated Ghibli Dataset**: Custom dataset with AI-enhanced information about Studio Ghibli films
+  ```python
+  ai_generated_dataset = load_dataset("filberthamijoyo/AI_Generated_Ghibli")
+  ```
 
-### Supplementary Datasets
-- **Character Analysis**: Information about main and supporting characters, their roles and development
-- **Thematic Elements**: Curated dataset tracking recurring themes across films (environmentalism, coming-of-age, etc.)
-- **Visual Style Metrics**: Quantitative data about color palettes, animation techniques, and visual compositions
-- **Audience Demographics**: Viewership data by age, region, and gender when available
+- **Ghibli Anime Dataset**: Comprehensive collection of Ghibli anime information and metrics
+  ```python
+  ghibli_dataset = load_dataset("satyamtripathii/Ghibli_Anime")
+  ```
 
-All datasets were cleaned, merged, and processed to create a unified analytical framework.
+These datasets contain information about:
+- Film titles, directors, and release dates
+- Box office performance
+- Critical reception and ratings
+- Plot summaries and thematic elements
+- Character information
+- Animation techniques and visual styles
+
+The datasets were processed and merged to create a unified analytical framework that allows for comprehensive exploration of Studio Ghibli's filmography.
 
 ## Key Findings
 
@@ -68,6 +75,7 @@ For detailed findings, please refer to the Jupyter notebook and documentation.
 - Python 3.8+
 - Jupyter Notebook
 - Required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn
+- Hugging Face datasets library (`pip install datasets`)
 
 ### Installation
 
@@ -111,6 +119,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Acknowledgments
 
 - Studio Ghibli for their incredible filmmaking
-- Data sources that made this analysis possible
+- Dataset creators on Hugging Face: filberthamijoyo and satyamtripathii
 - Contributors to the open-source libraries used in this project
 - The animation research community for methodological inspiration 
