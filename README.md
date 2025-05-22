@@ -42,7 +42,7 @@ Our dataset comprises two distinct categories: authentic Studio Ghibli animation
   ghibli_dataset = load_dataset("satyamtripathii/Ghibli_Anime")
   ```
 
-- **AI-Generated Ghibli Images Dataset**: A novel dataset **personally created and published by me (filberthamijoyo)** specifically for this research. This unique collection comprises 368 high-quality images (approximately 416 MB total) in PNG and JPG formats at various high resolutions.
+- **AI-Generated Ghibli Images Dataset**: A novel dataset **personally created and published** specifically for this research. This unique collection comprises 368 high-quality images (approximately 416 MB total) in PNG and JPG formats at various high resolutions.
   ```python
   ai_generated_dataset = load_dataset("filberthamijoyo/AI_Generated_Ghibli")
   ```
