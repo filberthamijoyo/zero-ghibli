@@ -1,24 +1,47 @@
-# Zero Ghibli: Studio Ghibli Film Analysis
+# Zero Ghibli: Detecting AI-Generated Studio Ghibli Artwork
 
-This project provides a comprehensive analysis of Studio Ghibli films using data science techniques. By examining various aspects of these beloved animated films, we aim to uncover patterns, trends, and insights about their storytelling, themes, and reception.
+This project addresses the challenge of distinguishing between authentic Studio Ghibli animation frames and AI-generated imitations through deep learning techniques. As AI-generated content becomes increasingly sophisticated, preserving artistic authenticity and protecting intellectual property becomes crucial, especially for iconic animation studios like Studio Ghibli.
 
 ## Project Overview
 
 This repository contains:
 
-- A Jupyter Notebook (`ghibli_analysis.ipynb`) with all data analysis code and visualizations
+- A Jupyter Notebook (`ghibli_analysis.ipynb`) with all data analysis code and model implementations
 - Documentation of methodology and findings (`ghibli_project_documentation.pdf`)
 - Dataset sources and processing techniques
-- Visualization outputs and statistical models
+- Visualization outputs and model comparison results
 
-## Features
+## Research Focus
 
-- Exploratory data analysis of Studio Ghibli films
-- Visualization of key metrics and trends
-- Statistical analysis of film characteristics
-- Predictive modeling of film success factors
-- Deep learning model for distinguishing authentic Ghibli frames from AI-generated imitations
-- Thematic analysis of recurring motifs in Ghibli storytelling
+- Comprehensive evaluation of deep learning approaches for detecting AI-generated Ghibli-style images
+- Systematic comparison of seven prominent CNN architectures
+- Introduction of "Ghiblinosaurus," a novel approach with specialized attention mechanisms
+- Analysis of trade-offs between model accuracy, computational efficiency, and resource requirements
+- Visualization techniques for model interpretability using Gradient-weighted Class Activation Mapping (Grad-CAM)
+
+## CNN Architectures Evaluated
+
+This project compares the performance of seven prominent convolutional neural network architectures:
+
+1. VGG16
+2. Xception
+3. DenseNet121
+4. MobileNetV2
+5. InceptionV3
+6. ResNet-50
+7. EfficientNetB0
+
+Each model brings different architectural strengths to the classification task of distinguishing authentic Ghibli frames from AI-generated imitations.
+
+## The Ghiblinosaurus Model
+
+We introduce "Ghiblinosaurus," a novel approach that incorporates specialized attention mechanisms designed to identify subtle artifacts and inconsistencies common in AI-generated animation. These mechanisms focus on:
+
+- Color harmony
+- Edge consistency
+- Texture patterns
+
+These features are particularly important for distinguishing authentic Ghibli artwork from synthetic imitations, as they capture the unique qualities of hand-drawn animation.
 
 ## Methodology
 
@@ -27,9 +50,9 @@ The analysis follows these key steps:
 1. **Data Collection**: Collecting authentic Ghibli frames and AI-generated imitations
 2. **Data Preprocessing**: Converting to RGB format and resizing images
 3. **Data Augmentation**: Applying transformations to improve model generalization
-4. **Model Development**: Creating and training neural networks for image classification
-5. **Evaluation**: Assessing model performance on test datasets
-6. **Interpretation**: Drawing conclusions about detection capabilities and visual features
+4. **Model Development**: Implementing and training seven CNN architectures
+5. **Performance Evaluation**: Comparing models across multiple performance metrics
+6. **Interpretability Analysis**: Using Grad-CAM to visualize what features the models focus on
 
 ## Datasets
 
@@ -85,12 +108,13 @@ These augmentation techniques were applied only to the training set, while valid
 
 ## Key Findings
 
-Some notable insights from our analysis include:
+Our research provides several important contributions:
 
-- Development of models capable of distinguishing authentic Ghibli frames from AI-generated imitations
-- Identification of visual features and artifacts that differentiate real vs. AI-generated Ghibli-style images
-- Analysis of how different AI generation tools produce varying levels of Ghibli-style accuracy
-- Evaluation of model performance across different scenes, character types, and visual compositions
+- Systematic comparison of seven CNN architectures for detecting AI-generated animation
+- Benchmark results across multiple performance metrics for each model
+- Analysis of the trade-offs between model accuracy, computational efficiency, and resource requirements
+- Insights into which visual features are most important for distinguishing authentic from AI-generated Ghibli artwork
+- Demonstration of the effectiveness of specialized attention mechanisms in the Ghiblinosaurus model
 
 For detailed findings, please refer to the Jupyter notebook and documentation.
 
@@ -123,20 +147,21 @@ jupyter notebook ghibli_analysis.ipynb
 
 The project includes various visualization types:
 
-- Confusion matrices for model performance evaluation
-- Training and validation accuracy/loss curves
-- Feature visualization through activation maps
-- Comparative analysis of model predictions on different AI-generated images
-- Visualization of misclassified examples for error analysis
+- Confusion matrices for each model's performance
+- Training and validation accuracy/loss curves across architectures
+- Grad-CAM visualizations highlighting regions of interest in the images
+- Comparative analysis of model predictions across different types of AI-generated images
+- Resource utilization metrics for each model
 
 ## Future Work
 
-Potential extensions to this analysis include:
+Potential extensions to this research include:
 
 - Incorporating temporal features by analyzing frame sequences rather than isolated frames
-- Developing models specifically targeting each AI generation tool's artifacts
-- Creating a web-based demo for public testing of Ghibli vs. AI-generated image detection
-- Expanding the dataset with additional AI generation tools as they emerge
+- Developing specialized detection techniques for each AI generation tool
+- Exploring ensemble methods that combine multiple architectures
+- Investigating the impact of animation-specific preprocessing techniques
+- Adapting the approach to other animation studios and artistic styles
 
 ## Dataset Contribution
 
