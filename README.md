@@ -17,54 +17,80 @@ This repository contains:
 - Visualization of key metrics and trends
 - Statistical analysis of film characteristics
 - Predictive modeling of film success factors
+- Deep learning model for distinguishing authentic Ghibli frames from AI-generated imitations
 - Thematic analysis of recurring motifs in Ghibli storytelling
-- Comparative analysis with other animation studios
 
 ## Methodology
 
 The analysis follows these key steps:
 
-1. **Data Collection**: Loading datasets from Hugging Face repositories
-2. **Data Cleaning**: Handling missing values and standardizing formats
-3. **Exploratory Analysis**: Identifying patterns and relationships
-4. **Statistical Testing**: Validating hypotheses about film characteristics
-5. **Visualization**: Creating insightful plots and interactive dashboards
-6. **Interpretation**: Drawing conclusions about Ghibli's filmmaking approach
+1. **Data Collection**: Collecting authentic Ghibli frames and AI-generated imitations
+2. **Data Preprocessing**: Converting to RGB format and resizing images
+3. **Data Augmentation**: Applying transformations to improve model generalization
+4. **Model Development**: Creating and training neural networks for image classification
+5. **Evaluation**: Assessing model performance on test datasets
+6. **Interpretation**: Drawing conclusions about detection capabilities and visual features
 
 ## Datasets
 
-The analysis uses two primary datasets from Hugging Face:
+Our dataset comprises two distinct categories: authentic Studio Ghibli animation frames and AI-generated images that imitate the Ghibli style.
 
 ### Primary Datasets
-- **AI-Generated Ghibli Dataset**: Custom dataset with AI-enhanced information about Studio Ghibli films
-  ```python
-  ai_generated_dataset = load_dataset("filberthamijoyo/AI_Generated_Ghibli")
-  ```
 
-- **Ghibli Anime Dataset**: Comprehensive collection of Ghibli anime information and metrics
+- **Ghibli Anime Dataset**: Contains authentic frames extracted from Studio Ghibli films, representing the ground truth of genuine Ghibli artwork with its characteristic hand-drawn animation style, color palettes, and artistic techniques.
   ```python
   ghibli_dataset = load_dataset("satyamtripathii/Ghibli_Anime")
   ```
 
-These datasets contain information about:
-- Film titles, directors, and release dates
-- Box office performance
-- Critical reception and ratings
-- Plot summaries and thematic elements
-- Character information
-- Animation techniques and visual styles
+- **AI-Generated Ghibli Images Dataset**: A novel dataset developed specifically for this research and published on Hugging Face. This unique collection comprises 368 high-quality images (approximately 416 MB total) in PNG and JPG formats at various high resolutions.
+  ```python
+  ai_generated_dataset = load_dataset("filberthamijoyo/AI_Generated_Ghibli")
+  ```
 
-The datasets were processed and merged to create a unified analytical framework that allows for comprehensive exploration of Studio Ghibli's filmography.
+### AI-Generated Dataset Details
+
+The AI-generated images were meticulously created using multiple state-of-the-art AI generation tools:
+- Midjourney
+- DALL-E
+- Stable Diffusion
+- ChatGPT
+
+Images were generated with prompts specifically designed to mimic the distinctive Ghibli aesthetic across diverse subjects, characters, and landscapes. This dataset represents one of the first publicly available collections specifically designed for animation-style deepfake detection, addressing a significant gap in current research resources.
+
+### Data Processing
+
+The complete dataset was processed and organized as follows:
+- Images were converted to RGB format for consistency
+- All images were resized to 224×224 pixels to accommodate the input requirements of the CNN architectures
+- The dataset was split into training (70%), validation (15%), and testing (15%) sets, maintaining class balance in each split
+- Class labels were assigned as binary categories: "real ghibli" for authentic frames and "ai generated" for synthetic images
+
+### Data Augmentation
+
+To improve model generalization and address the relatively limited size of the dataset, we implemented comprehensive data augmentation strategies:
+
+**Basic Augmentations:**
+- Geometric transformations: rotation (up to 40 degrees), width and height shifts (up to 30%), shearing (up to 30%), zooming (up to 30%), horizontal and vertical flips
+- Color manipulations: brightness variation (±30%), channel shifting (up to 20%)
+
+**Enhanced Augmentations (for Ghiblinosaurus model):**
+- Rotation (up to 40 degrees)
+- Width and height shifts (up to 40%)
+- Shearing (up to 40%)
+- Zooming (up to 40%)
+- Brightness variation (±40%)
+- Channel shifting (up to 30%)
+
+These augmentation techniques were applied only to the training set, while validation and test sets remained unmodified to ensure accurate performance evaluation. The augmentation process was implemented using TensorFlow's ImageDataGenerator, which applies transformations in real-time during model training.
 
 ## Key Findings
 
 Some notable insights from our analysis include:
 
-- Correlation between specific thematic elements and critical reception
-- Trends in visual styling across different directors' works
-- The evolution of Studio Ghibli's storytelling approach over time
-- Comparative success factors between Ghibli films and other major animation studios
-- Audience demographic patterns and their relationship to film themes
+- Development of models capable of distinguishing authentic Ghibli frames from AI-generated imitations
+- Identification of visual features and artifacts that differentiate real vs. AI-generated Ghibli-style images
+- Analysis of how different AI generation tools produce varying levels of Ghibli-style accuracy
+- Evaluation of model performance across different scenes, character types, and visual compositions
 
 For detailed findings, please refer to the Jupyter notebook and documentation.
 
@@ -74,7 +100,7 @@ For detailed findings, please refer to the Jupyter notebook and documentation.
 
 - Python 3.8+
 - Jupyter Notebook
-- Required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn
+- Required libraries: tensorflow, keras, pandas, numpy, matplotlib, seaborn, scikit-learn
 - Hugging Face datasets library (`pip install datasets`)
 
 ### Installation
@@ -97,20 +123,20 @@ jupyter notebook ghibli_analysis.ipynb
 
 The project includes various visualization types:
 
-- Time series analysis of film performance
-- Correlation heatmaps of film attributes
-- Network graphs of character relationships
-- Thematic radar charts comparing different films
-- Geographic distribution of box office performance
+- Confusion matrices for model performance evaluation
+- Training and validation accuracy/loss curves
+- Feature visualization through activation maps
+- Comparative analysis of model predictions on different AI-generated images
+- Visualization of misclassified examples for error analysis
 
 ## Future Work
 
 Potential extensions to this analysis include:
 
-- Deeper natural language processing of film dialogues
-- Expanded comparison with other animation studios
-- Machine learning models to predict film success
-- Interactive web dashboard for exploring the data
+- Incorporating temporal features by analyzing frame sequences rather than isolated frames
+- Developing models specifically targeting each AI generation tool's artifacts
+- Creating a web-based demo for public testing of Ghibli vs. AI-generated image detection
+- Expanding the dataset with additional AI generation tools as they emerge
 
 ## License
 
@@ -118,7 +144,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgments
 
-- Studio Ghibli for their incredible filmmaking
+- Studio Ghibli for their incredible filmmaking and unique animation style
 - Dataset creators on Hugging Face: filberthamijoyo and satyamtripathii
-- Contributors to the open-source libraries used in this project
-- The animation research community for methodological inspiration 
+- The AI generation tools (Midjourney, DALL-E, Stable Diffusion, ChatGPT) for enabling this research
+- The animation and deepfake detection research community for methodological inspiration 
