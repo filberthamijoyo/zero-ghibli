@@ -42,20 +42,20 @@ Our dataset comprises two distinct categories: authentic Studio Ghibli animation
   ghibli_dataset = load_dataset("satyamtripathii/Ghibli_Anime")
   ```
 
-- **AI-Generated Ghibli Images Dataset**: A novel dataset developed specifically for this research and published on Hugging Face. This unique collection comprises 368 high-quality images (approximately 416 MB total) in PNG and JPG formats at various high resolutions.
+- **AI-Generated Ghibli Images Dataset**: A novel dataset **personally created and published by me (filberthamijoyo)** specifically for this research. This unique collection comprises 368 high-quality images (approximately 416 MB total) in PNG and JPG formats at various high resolutions.
   ```python
   ai_generated_dataset = load_dataset("filberthamijoyo/AI_Generated_Ghibli")
   ```
 
 ### AI-Generated Dataset Details
 
-The AI-generated images were meticulously created using multiple state-of-the-art AI generation tools:
+The AI-generated images were meticulously created by **filberthamijoyo** using multiple state-of-the-art AI generation tools:
 - Midjourney
 - DALL-E
 - Stable Diffusion
 - ChatGPT
 
-Images were generated with prompts specifically designed to mimic the distinctive Ghibli aesthetic across diverse subjects, characters, and landscapes. This dataset represents one of the first publicly available collections specifically designed for animation-style deepfake detection, addressing a significant gap in current research resources.
+Images were generated with prompts specifically designed to mimic the distinctive Ghibli aesthetic across diverse subjects, characters, and landscapes. This dataset represents one of the first publicly available collections specifically designed for animation-style deepfake detection, addressing a significant gap in current research resources. **The dataset has been published on Hugging Face to benefit the broader research community.**
 
 ### Data Processing
 
@@ -138,6 +138,13 @@ Potential extensions to this analysis include:
 - Creating a web-based demo for public testing of Ghibli vs. AI-generated image detection
 - Expanding the dataset with additional AI generation tools as they emerge
 
+## Dataset Contribution
+
+The "AI-Generated Ghibli Images Dataset" created for this project has been made publicly available on Hugging Face by **filberthamijoyo** (the author of this project). This contribution provides a valuable resource for researchers working on animation-style deepfake detection and AI art generation analysis.
+
+You can access and use this dataset for your own research at:
+[https://huggingface.co/datasets/filberthamijoyo/AI_Generated_Ghibli](https://huggingface.co/datasets/filberthamijoyo/AI_Generated_Ghibli)
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
@@ -145,6 +152,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Acknowledgments
 
 - Studio Ghibli for their incredible filmmaking and unique animation style
-- Dataset creators on Hugging Face: filberthamijoyo and satyamtripathii
+- Dataset creator of Ghibli Anime dataset: satyamtripathii
 - The AI generation tools (Midjourney, DALL-E, Stable Diffusion, ChatGPT) for enabling this research
 - The animation and deepfake detection research community for methodological inspiration 
